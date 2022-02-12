@@ -4,14 +4,14 @@
 <script>
 var gun = Gun(); // your code here
 var items = gun.get('items');
-var pippo = document.getElementById('pippo');
-console.log(pippo);
-pippo.onsubmit = prova;
+// var pippo = document.getElementById('pippo');
+// console.log(pippo);
+// pippo.onsubmit = prova;
 
-function prova(event) {
-    event.preventDefault();
-    console.log('ciao');
-}
+// function prova(event) {
+//     event.preventDefault();
+//     console.log('ciao');
+// }
 $('form').on('submit', function(e){
     console.log('ciao');
     e.preventDefault();
@@ -30,6 +30,6 @@ items.map().on(function(item, id){
 <h1>ToDo</h1>
 <form id="pippo">
     <input>
-    <button>Add</button>
+    <button type="submit">Add</button>
 </form>
 <ul></ul>
