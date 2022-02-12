@@ -2,6 +2,6 @@
 <script>
 gun = GUN(); // your code here
 console.log('ciao');
-alice = gun.get('alice').put({name: 'alice', age: 22});
-console.log(gun.get('alice'));
+alice = gun.get('alice').put({name: 'alice'});
+console.log(gun.get('alice').get('name'));
 </script>
