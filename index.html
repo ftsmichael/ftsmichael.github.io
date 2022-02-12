@@ -1,7 +1,26 @@
+
 <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-gun = GUN(); // your code here
-console.log('ciao2');
-gun.get('alice').put({name: 'alice'});
-console.log(gun.get('alice').get('name'));
+var gun = Gun(); // your code here
+var items = gun.get('items');
+$('form').on('submit', function(e){
+    e.preventDefault();
+    items.set($('input').val());
+    $('input').val("");
+})
+items.map().on(function(item, id){
+    var li = $('#' + id).get(0) || $('<li>').attr('id', id).appendTo('ul');
+        if (item) {
+            $(li).text(item);
+        } else {
+            $(li).hide();
+        }
+})
 </script>
+<h1>ToDo</h1>
+<form>
+    <input>
+    <button>Add</button>
+</form>
+<ul></ul>
