@@ -8,30 +8,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>ToDo</h1>
-    <form id="pippo">
-        <input>
-        <button type="submit">Add</button>
-    </form>
-    <ul></ul>
-    <script>
-    var gun = Gun();
-    var items = gun.get('items');
-    $('form').on('submit', function(e){
-        console.log('ciao');
-        e.preventDefault();
-        items.set($('input').val());
-        $('input').val("");
-    })
-    items.map().on(function(item, id){
-        var li = $('#' + id).get(0) || $('<li>').attr('id', id).appendTo('ul');
-            if (item) {
-                $(li).text(item);
-            } else {
-                $(li).hide();
-            }
-    })
-    </script>
+    <h1>Ciao</h1>
+    <input type="file" accept="audio/*" capture id="recorder">
+<audio id="player" controls></audio>
+<script>
+  const recorder = document.getElementById('recorder');
+  const player = document.getElementById('player');
+
+  recorder.addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    const url = URL.createObjectURL(file);
+    // Do something with the audio file.
+    player.src = url;
+  });
+</script>
+
   </body>
 </html>
 
